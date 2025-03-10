@@ -32,6 +32,7 @@ class VentanaPagos(QMainWindow):
         self.bt_eliminar_pago.clicked.connect(self.eliminar_pago)
         self.bt_actualizar_pago.clicked.connect(self.actualizar_pago)
         self.bt_atras.clicked.connect(self.ir_atras)
+        self.bt_informe.clicked.connect(self.generar_informe)
 
     # Métodos de la clase
     def registrar_pago(self):
@@ -128,6 +129,12 @@ class VentanaPagos(QMainWindow):
             self.mostrar_pagos()
         else:
             QMessageBox.warning(self, "Error", msg)
+
+    # Generar un informe en PDF con los datos de los pagos
+    def generar_informe(self):
+        from pago_pdf import PagoPDF
+        pdf = PagoPDF()   # Instancia de la clase PDFReport
+        pdf.create_pdf()    # Genera el PDF
 
     def ir_atras(self):
         from window_main import VentanaPrincipal

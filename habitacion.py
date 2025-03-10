@@ -31,6 +31,7 @@ class VentanaHabitaciones(QMainWindow):
         self.bt_eliminar_habitacion.clicked.connect(self.eliminar_habitacion)
         self.bt_actualizar_habitacion.clicked.connect(self.actualizar_habitacion)
         self.bt_atras.clicked.connect(self.ir_atras)
+        self.bt_informe.clicked.connect(self.generar_informe)
 
     def registrar_habitacion(self):
         numero = self.textNumero.text()
@@ -128,6 +129,12 @@ class VentanaHabitaciones(QMainWindow):
             self.mostrar_habitaciones()
         else:
             QMessageBox.warning(self, "Error", msg)
+
+    # Generar un informe en PDF con los datos de los clientes
+    def generar_informe(self):
+        from habitacion_pdf import HabitacionPDF
+        pdf = HabitacionPDF()   # Instancia de la clase PDFReport
+        pdf.create_pdf()    # Genera el PDF
 
     def ir_atras(self):
         from window_main import VentanaPrincipal

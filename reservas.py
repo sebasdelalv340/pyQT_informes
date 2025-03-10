@@ -31,6 +31,7 @@ class VentanaReservas(QMainWindow):
         self.bt_eliminar_reservas.clicked.connect(self.eliminar_reserva)
         self.bt_actualizar_reserva.clicked.connect(self.actualizar_reserva)
         self.bt_atras.clicked.connect(self.ir_atras)
+        self.bt_informe.clicked.connect(self.generar_informe)
 
         # Agregar opciones al QComboBox de estado
         self.comboEstado.addItems(["Pendiente", "Confirmada", "Cancelada", "Finalizada"])
@@ -133,6 +134,12 @@ class VentanaReservas(QMainWindow):
             self.mostrar_reservas()
         else:
             QMessageBox.warning(self, "Error", msg)
+
+    # Generar un informe en PDF con los datos de las reservas
+    def generar_informe(self):
+        from reserva_pdf import ReservaPDF
+        pdf = ReservaPDF()   # Instancia de la clase PDFReport
+        pdf.create_pdf()    # Genera el PDF
 
     def ir_atras(self):
         from window_main import VentanaPrincipal

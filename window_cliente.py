@@ -32,6 +32,7 @@ class VentanaClientes(QMainWindow):
         self.bt_eliminar_cliente.clicked.connect(self.eliminar_cliente)
         self.bt_actualizar_cliente.clicked.connect(self.actualizar_cliente)
         self.bt_atras.clicked.connect(self.ir_atras)
+        self.bt_informe.clicked.connect(self.generar_informe)
 
     def registrar_cliente(self):
         nombre = self.textNombre.text()
@@ -146,6 +147,13 @@ class VentanaClientes(QMainWindow):
             self.mostrar_clientes()  # Volver a cargar la lista de clientes
         else:
             QMessageBox.warning(self, "Error", msg)
+
+    # Generar un informe en PDF con los datos de los clientes
+    def generar_informe(self):
+        from cliente_pdf import ClientePDF
+        pdf = ClientePDF()   # Instancia de la clase PDFReport
+        pdf.create_pdf()    # Genera el PDF
+
 
     
     # Vuelve a la ventana principal

@@ -110,6 +110,14 @@ class Ui_MainWindow(object):
         self.label_9 = QLabel(self.centralwidget)
         self.label_9.setObjectName(u"label_9")
         self.label_9.setGeometry(QRect(790, 500, 141, 16))
+        self.bt_informe = QPushButton(self.centralwidget)
+        self.bt_informe.setObjectName(u"bt_informe")
+        self.bt_informe.setGeometry(QRect(830, 620, 111, 31))
+        font1 = QFont()
+        font1.setPointSize(10)
+        self.bt_informe.setFont(font1)
+        self.bt_informe.setStyleSheet(u"background-color: rgb(255, 0, 255);\n"
+"background-color: rgb(170, 0, 127);")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -141,5 +149,6 @@ class Ui_MainWindow(object):
         self.bt_atras.setText("")
         self.bt_buscar_cliente.setText(QCoreApplication.translate("MainWindow", u"Buscar", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Introduce email del cliente", None))
+        self.bt_informe.setText(QCoreApplication.translate("MainWindow", u"Informe PDF", None))
     # retranslateUi
 

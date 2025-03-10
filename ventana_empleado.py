@@ -31,6 +31,7 @@ class VentanaEmpleados(QMainWindow):
         self.bt_eliminar_empleado.clicked.connect(self.eliminar_empleado)
         self.bt_actualizar_empleado.clicked.connect(self.actualizar_empleado)
         self.bt_atras.clicked.connect(self.ir_atras)
+        self.bt_informe.clicked.connect(self.generar_informe)
 
     def registrar_empleado(self):
         """Registra un nuevo empleado en la base de datos."""
@@ -145,6 +146,12 @@ class VentanaEmpleados(QMainWindow):
             self.mostrar_empleados()  # Volver a cargar la lista de empleados
         else:
             QMessageBox.warning(self, "Error", msg)
+
+    # Generar un informe en PDF con los datos de los empleados
+    def generar_informe(self):
+        from empleado_pdf import EmpleadoPDF
+        pdf = EmpleadoPDF()   # Instancia de la clase PDFReport
+        pdf.create_pdf()    # Genera el PDF
 
     def ir_atras(self):
         """Vuelve a la ventana principal."""
