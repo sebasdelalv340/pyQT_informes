@@ -52,18 +52,18 @@ class PagoPDF(FPDF):
 
         # Encabezado de la tabla
         self.cell(20, 10, 'ID', 1, 0, 'C')
-        self.cell(40, 10, 'ID reserva', 1, 0, 'C')
-        self.cell(40, 10, 'Monto', 1, 0, 'C')
-        self.cell(40, 10, 'Método', 1, 0, 'C')
-        self.cell(60, 10, 'Fecha', 1, 0, 'C')
+        self.cell(30, 10, 'ID reserva', 1, 0, 'C')
+        self.cell(45, 10, 'Monto (euros)', 1, 0, 'C')
+        self.cell(45, 10, 'Método', 1, 0, 'C')
+        self.cell(45, 10, 'Fecha', 1, 1, 'C')
 
         # Rellenar la tabla con los datos
         for row in data:
-            self.cell(20, 10, str(row[0]), 1, 0, 'C')
-            self.cell(40, 10, row[1], 1, 0, 'C')  
-            self.cell(40, 10, row[2], 1, 0, 'C')  
-            self.cell(40, 10, row[3], 1, 0, 'C')  
-            self.cell(60, 10, row[4], 1, 0, 'C')  
+            self.cell(20, 10, str(row[0]), 1, 0, 'C')  
+            self.cell(30, 10, str(row[1]), 1, 0, 'C')
+            self.cell(45, 10, str(row[2]), 1, 0, 'C')  
+            self.cell(45, 10, str(row[3]), 1, 0, 'C')   
+            self.cell(45, 10, str(row[4]), 1, 1, 'C') 
             
 
         # Guardar el PDF

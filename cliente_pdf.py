@@ -50,20 +50,22 @@ class ClientePDF(FPDF):
         self.set_font('Arial', '', 12)
 
         # Encabezado de la tabla
-        self.cell(20, 10, 'ID', 1, 0, 'C')
-        self.cell(40, 10, 'Nombre', 1, 0, 'C')
-        self.cell(40, 10, 'Apellido 1', 1, 0, 'C')
-        self.cell(40, 10, 'Apellido 2', 1, 0, 'C')
-        self.cell(60, 10, 'Email', 1, 0, 'C')
+        self.cell(15, 10, 'ID', 1, 0, 'C')
+        self.cell(30, 10, 'Nombre', 1, 0, 'C')
+        self.cell(30, 10, 'Apellido 1', 1, 0, 'C')
+        self.cell(30, 10, 'Apellido 2', 1, 0, 'C')
+        self.cell(55, 10, 'Email', 1, 0, 'C')
         self.cell(30, 10, 'DNI', 1, 1, 'C')  # Añadido el campo DNI
+
+        self.set_font('Arial', '', 8)
 
         # Rellenar la tabla con los datos
         for row in data:
-            self.cell(20, 10, str(row[0]), 1, 0, 'C')  # ID
-            self.cell(40, 10, row[1], 1, 0, 'C')  # Nombre
-            self.cell(40, 10, row[2], 1, 0, 'C')  # Apellido 1
-            self.cell(40, 10, row[3], 1, 0, 'C')  # Apellido 2
-            self.cell(60, 10, row[4], 1, 0, 'C')  # Email
+            self.cell(15, 10, str(row[0]), 1, 0, 'C')  # ID
+            self.cell(30, 10, row[1], 1, 0, 'C')  # Nombre
+            self.cell(30, 10, row[2], 1, 0, 'C')  # Apellido 1
+            self.cell(30, 10, row[3], 1, 0, 'C')  # Apellido 2
+            self.cell(55, 10, row[4], 1, 0, 'C')  # Email
             self.cell(30, 10, row[5], 1, 1, 'C')  # DNI
 
         # Guardar el PDF

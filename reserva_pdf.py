@@ -51,21 +51,24 @@ class ReservaPDF(FPDF):
         self.set_font('Arial', '', 12)
 
         # Encabezado de la tabla
-        self.cell(20, 10, 'ID', 1, 0, 'C')
-        self.cell(40, 10, 'Email cliente', 1, 0, 'C')
-        self.cell(40, 10, 'Nª habitacion', 1, 0, 'C')
-        self.cell(40, 10, 'Checkin', 1, 0, 'C')
-        self.cell(60, 10, 'Checkout', 1, 0, 'C')
-        self.cell(60, 10, 'Estado', 1, 0, 'C')
+        self.cell(15, 10, 'ID', 1, 0, 'C')
+        self.cell(50, 10, 'Email cliente', 1, 0, 'C')
+        self.cell(35, 10, 'Nª habitacion', 1, 0, 'C')
+        self.cell(30, 10, 'Checkin', 1, 0, 'C')
+        self.cell(30, 10, 'Checkout', 1, 0, 'C')
+        self.cell(35, 10, 'Estado', 1, 1, 'C')
+
+        # Cambiar a una fuente más pequeña para los datos
+        self.set_font('Arial', '', 8)
 
         # Rellenar la tabla con los datos
         for row in data:
-            self.cell(20, 10, str(row[0]), 1, 0, 'C')
-            self.cell(40, 10, row[1], 1, 0, 'C')  
-            self.cell(40, 10, row[2], 1, 0, 'C')  
-            self.cell(40, 10, row[3], 1, 0, 'C')  
-            self.cell(60, 10, row[4], 1, 0, 'C')  
-            self.cell(60, 10, row[5], 1, 0, 'C')
+            self.cell(15, 10, str(row[0]), 1, 0, 'C')  
+            self.cell(50, 10, str(row[1]), 1, 0, 'C')   
+            self.cell(35, 10, str(row[2]), 1, 0, 'C')  
+            self.cell(30, 10, str(row[3]), 1, 0, 'C') 
+            self.cell(30, 10, str(row[4]), 1, 0, 'C')   
+            self.cell(35, 10, str(row[5]), 1, 1, 'C')   
             
 
         # Guardar el PDF

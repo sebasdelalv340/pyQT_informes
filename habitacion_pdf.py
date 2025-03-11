@@ -51,19 +51,19 @@ class HabitacionPDF(FPDF):
         self.set_font('Arial', '', 12)
 
         # Encabezado de la tabla
-        self.cell(20, 10, 'ID', 1, 0, 'C')
+        self.cell(15, 10, 'ID', 1, 0, 'C')
         self.cell(40, 10, 'Numero', 1, 0, 'C')
         self.cell(40, 10, 'Tipo', 1, 0, 'C')
-        self.cell(40, 10, 'Precio noche', 1, 0, 'C')
-        self.cell(60, 10, 'Disponible', 1, 0, 'C')
+        self.cell(55, 10, 'Precio noche (euros)', 1, 0, 'C')
+        self.cell(30, 10, 'Disponible', 1, 1, 'C')
 
         # Rellenar la tabla con los datos
         for row in data:
-            self.cell(20, 10, str(row[0]), 1, 0, 'C')
-            self.cell(40, 10, row[1], 1, 0, 'C')  
-            self.cell(40, 10, row[2], 1, 0, 'C')  
-            self.cell(40, 10, row[3], 1, 0, 'C')  
-            self.cell(60, 10, row[4], 1, 0, 'C')  
+            self.cell(15, 10, str(row[0]), 1, 0, 'C')
+            self.cell(40, 10, str(row[1]), 1, 0, 'C')  
+            self.cell(40, 10, str(row[2]), 1, 0, 'C')  
+            self.cell(55, 10, str(row[3]), 1, 0, 'C')  
+            self.cell(30, 10, str(row[4]), 1, 1, 'C')  
             
 
         # Guardar el PDF
